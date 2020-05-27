@@ -3,6 +3,13 @@ FROM httpd:alpine
 # These variables are inherited from the httpd:alpine image:
 # ENV HTTPD_PREFIX /usr/local/apache2
 # WORKDIR "$HTTPD_PREFIX"
+ENV PUID=1000
+ENV PGID=1000
+
+# install shadow
+RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories \
+    && apk update \
+    && apk add shadow
 
 # Copy in our configuration files.
 COPY conf/ conf/
