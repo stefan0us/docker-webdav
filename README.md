@@ -104,4 +104,5 @@ All environment variables are optional. You probably want to at least specify `U
 * **`PASSWORD`**: Authenticate with this password (and the username above). This is ignored if you bind mount your own authentication file to `/user.passwd`.
 * **`ANONYMOUS_METHODS`**: Comma-separated list of HTTP request methods (eg, `GET,POST,OPTIONS,PROPFIND`). Clients can use any method you specify here without authentication. Set to `ALL` to disable authentication. The default is to disallow any anonymous access.
 * **`SSL_CERT`**: Set to `selfsigned` to generate a self-signed certificate and enable Apache's SSL module. If you specify `SERVER_NAMES`, the first domain is set as the Common Name.
-
+* **`PUID`**: Assign UID to the container. Files in the mounted directory will use this UID. The default is `1000`.
+* **`PGID`**: Assign GID to the container. Files in the mounted directory will use this GID. The default is `1000`.
